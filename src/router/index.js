@@ -1,9 +1,10 @@
 import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Router from 'vue-router'
 
-Vue.use(VueRouter)
+Vue.use(Router)
 
-const routes = [
+// 固定路由
+export const constantRoutes = [
   {
     path: '/',
     name: 'Home',
@@ -12,12 +13,14 @@ const routes = [
   {
     path: '/about',
     name: 'About',
-    component: () => import('../views/About.vue')
+    component: () => import('@/views/About.vue')
   }
 ]
 
-const router = new VueRouter({
-  routes
+const createRouter = () => new Router({
+  routes: constantRoutes
 })
+
+const router = createRouter()
 
 export default router
