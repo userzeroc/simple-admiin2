@@ -7,6 +7,11 @@ Vue.use(Router)
 export const constantRoutes = [
   {
     path: '/',
+    name: 'Login',
+    component: () => import('@/views/auth/login.vue')
+  },
+  {
+    path: '/home',
     name: 'Home',
     component: () => import('@/views/Home.vue')
   },
@@ -17,9 +22,10 @@ export const constantRoutes = [
   }
 ]
 
-const createRouter = () => new Router({
-  routes: constantRoutes
-})
+const createRouter = () =>
+  new Router({
+    routes: constantRoutes
+  })
 
 const router = createRouter()
 
