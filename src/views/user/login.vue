@@ -6,7 +6,7 @@
         <el-input v-model="form.name" />
       </el-form-item>
       <el-form-item label="密码">
-        <el-input v-model="form.name" type="password" />
+        <el-input v-model="form.password" type="password" />
       </el-form-item>
       <el-button type="primary" @click.native.prevent="handleLogin()">登录</el-button>
     </el-form>
@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import { login } from '@/api/user'
 export default {
   data() {
     return {
@@ -25,7 +26,12 @@ export default {
     }
   },
   methods: {
-    handleLogin() {}
+    handleLogin() {
+      login(this.form).then(res => {
+        console.log(res)
+        this.$router.push('/home')
+      })
+    }
   }
 }
 </script>
