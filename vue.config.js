@@ -6,6 +6,12 @@ function resolve(dir) {
 }
 
 module.exports = {
+  devServer: {
+    // 代理axios
+    proxy: 'http://localhost',
+    // vue自己启动的端口
+    port: 9001
+  },
   configureWebpack: {
     // provide the app's title in webpack's name field, so that
     // it can be accessed in index.html to inject the correct title.
